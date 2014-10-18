@@ -205,6 +205,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ColorBlender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ColorBlender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ColorBlender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -512,7 +530,7 @@
       <workItem from="1413590996969" duration="144000" />
       <workItem from="1413617165311" duration="6164000" />
       <workItem from="1413649934595" duration="63000" />
-      <workItem from="1413650008339" duration="333000" />
+      <workItem from="1413650008339" duration="366000" />
     </task>
     <task id="LOCAL-00001" summary="Need to set bg color properly">
       <created>1413623298584</created>
@@ -522,11 +540,15 @@
       <created>1413650367766</created>
       <updated>1413650367766</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Need to set bg color properly">
+      <created>1413650426985</created>
+      <updated>1413650426985</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29903000" />
+    <option name="totallyTimeSpent" value="29936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-77" width="1920" height="1058" extended-state="6" />
