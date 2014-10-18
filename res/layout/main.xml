@@ -31,7 +31,8 @@
             android:id="@+id/colorOneView"
             android:layout_below="@id/colorOneTitle"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/view_frame"/>
 
     <View
             android:layout_width="325dp"
@@ -40,7 +41,8 @@
             android:layout_toRightOf="@id/colorOneView"
             android:layout_below="@id/colorTwoTitle"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/view_frame"/>
 
     <SeekBar
             android:layout_width="wrap_content"
@@ -58,7 +60,8 @@
             android:layout_alignStart="@+id/colorOneView"
             android:layout_alignEnd="@+id/colorViewTwo"
             android:layout_below="@id/blendBar"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp"
+            android:background="@drawable/view_frame"/>
 
     <TextView
             android:layout_width="fill_parent"

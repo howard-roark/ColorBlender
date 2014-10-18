@@ -21,7 +21,8 @@
             android:id="@+id/colorOneView"
             android:layout_below="@id/colorOneTitle"
             android:layout_marginTop="25dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/view_frame"/>
 
     <TextView
             android:layout_width="325dp"
@@ -40,7 +41,8 @@
             android:id="@+id/colorViewTwo"
             android:layout_below="@id/colorTwoTitle"
             android:layout_marginTop="25dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/view_frame"/>
 
     <view
             android:layout_width="wrap_content"
@@ -56,9 +58,11 @@
             android:layout_width="fill_parent"
             android:layout_height="425dp"
             android:layout_marginLeft="75dp"
+            android:layout_marginRight="75dp"
             android:id="@+id/blendView"
             android:layout_toRightOf="@id/blendBar"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="130dp"
+            android:background="@drawable/view_frame"/>
 
 
     <TextView
@@ -106,7 +110,7 @@
             android:text="@string/addColor"
             android:textSize="24dp"
             android:id="@+id/addColorTwo"
-            android:layout_alignTop="@+id/hexView"
+            android:layout_marginTop="510dp"
             android:layout_alignStart="@+id/addColorOne"
             android:onClick="addColorButtonClicked"/>
 </RelativeLayout>

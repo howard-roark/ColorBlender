@@ -2,9 +2,13 @@ package com.cs390h.ColorBlender;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -13,7 +17,10 @@ import android.view.View;
 public class ColorBlender extends Activity {
 
     /* Request code for communicating with ColorPicker via Intents */
-    private static final int PICK_COLOR_REN_CODE = 1;
+    private static final int PICK_COLOR_REQ_CODE = 1;
+
+    /* Enable view background to be changed in onActivityResult */
+    View view;
 
     /**
      * Overriden onCreate to start app.
@@ -35,18 +42,25 @@ public class ColorBlender extends Activity {
      */
     public void addColorButtonClicked(View view) {
         /* Create Intent to open ColorPicker app */
-        Intent i = new Intent("android.intent.action.MAIN");
-        i.setComponent(ComponentName.unflattenFromString
-                ("com.testingtechs.ColorPicker"));
-        i.addCategory("android.intent.category.LAUNCHER");
-        startActivityForResult(i, PICK_COLOR_REN_CODE);
+        Intent i = new Intent("com.testingtechs.GET_COLOR");
+        startActivityForResult(i, PICK_COLOR_REQ_CODE);
 
-        //TODO send color to the appropriate views background via setColor()
+        this.view = view;
 
+        /* Disable button so chosen color cannot be overwritten */
         view.setEnabled(false);
     }
 
-    private void setColor(View view, Color color) {
 
+    @Override
+    protected void onActivityResult(int requestCode,
+                                    int resultCode, Intent data) {
+        if ((requestCode == PICK_COLOR_REQ_CODE) && (resultCode == RESULT_OK)) {
+            int[] rgbVals = data.getExtras().getIntArray("RGB");
+            this.view.setBackgroundColor(Color.rgb(rgbVals[0], rgbVals[1],
+                    rgbVals[2]));
+        } else {
+            Log.e("onActivityResult --> ", "Error recieving RGB vals from CP");
+        }
     }
 }
