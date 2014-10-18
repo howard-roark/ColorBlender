@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1">
+    <TextView
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/colorOneTitle"
+            android:text="@string/color1"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="25dp"
+            android:textSize="36dp"
+            android:gravity="center"/>
+
+    <View
+            android:layout_width="325dp"
+            android:layout_height="225dp"
+            android:id="@+id/colorOneView"
+            android:layout_below="@id/colorOneTitle"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="50dp"/>
+
+    <TextView
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/colorTwoTitle"
+            android:layout_below="@id/colorOneView"
+            android:text="@string/color2"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="50dp"
+            android:textSize="36dp"
+            android:gravity="center"/>
+
+    <View
+            android:layout_width="325dp"
+            android:layout_height="225dp"
+            android:id="@+id/colorViewTwo"
+            android:layout_below="@id/colorTwoTitle"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="50dp"/>
+
+    <view
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="200dp"
+            class="com.cs390h.ColorBlender.VerticalSeekBar"
+            android:id="@+id/blendBar"
+            android:layout_toRightOf="@+id/colorOneTitle"/>
+
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="425dp"
+            android:layout_marginLeft="75dp"
+            android:id="@+id/blendView"
+            android:layout_toRightOf="@id/blendBar"
+            android:layout_marginTop="50dp"/>
+
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hexView"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="75dp"
+            android:layout_toRightOf="@id/blendBar"
+            android:layout_below="@id/blendView"
+            android:text="@string/hexVal"
+            android:textSize="36dp"
+            android:gravity="center"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgbView"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="75dp"
+            android:layout_toRightOf="@id/blendBar"
+            android:layout_below="@id/hexView"
+            android:text="@string/rgbVal"
+            android:textSize="36dp"
+            android:gravity="center"/>
+
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addColor"
+            android:textSize="24dp"
+            android:id="@+id/addColorOne"
+            android:layout_alignTop="@+id/colorOneView"
+            android:layout_alignStart="@+id/colorOneView"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:onClick="addColorButtonClicked"/>
+
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addColor"
+            android:textSize="24dp"
+            android:id="@+id/addColorTwo"
+            android:layout_alignTop="@+id/hexView"
+            android:layout_alignStart="@+id/addColorOne"
+            android:onClick="addColorButtonClicked"/>
+</RelativeLayout>

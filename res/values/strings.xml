@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ColorBlender</string>
+    <string name="color1">Color One</string>
+    <string name="color2">Color Two</string>
+    <string name="blended">Blended Color</string>
+    <string name="hexVal"></string>
+    <string name="rgbVal"></string>
+    <string name="addColor">+</string>
+</resources>
