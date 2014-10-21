@@ -4,7 +4,5 @@
     <string name="color1">Color One</string>
     <string name="color2">Color Two</string>
     <string name="blended">Blended Color</string>
-    <string name="hexVal"></string>
-    <string name="rgbVal"></string>
     <string name="addColor">+</string>
 </resources>
