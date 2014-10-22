@@ -1,7 +1,6 @@
 package com.cs390h.ColorBlender;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -30,13 +28,12 @@ public class ColorBlender extends Activity
     /* Bundle to save state of app */
     public final Bundle saveState = new Bundle();
 
-    private int[] COLOR_ONE_BG = new int[3];
-    private int[] COLOR_TWO_BG = new int[3];
-
     /* Tags for saving and retrieving state of app */
     private final String COLOR_ONE = "Color 1 BG";
     private final String COLOR_TWO = "Color 2 BG";
     private final String SAVE_STATE = "saveState";
+    private int[] COLOR_ONE_BG = new int[3];
+    private int[] COLOR_TWO_BG = new int[3];
 
     /**
      * Overriden onCreate to start app.
@@ -53,7 +50,8 @@ public class ColorBlender extends Activity
 
         if (savedInstanceState != null) {
             Bundle bun = savedInstanceState.getBundle(SAVE_STATE);
-            Log.d("BUN", " " + bun.containsKey(COLOR_ONE));
+
+            //If color one was chosen and saved reload it
             try {
                 setBgColor(findViewById(R.id.addColorOne),
                         bun.getIntArray(COLOR_ONE));
@@ -62,6 +60,7 @@ public class ColorBlender extends Activity
                         "NPE when restoring background One");
             }
 
+            //If color two was chosen and saved reload it
             try {
                 setBgColor(findViewById(R.id.addColorTwo),
                         bun.getIntArray(COLOR_TWO));
@@ -165,7 +164,7 @@ public class ColorBlender extends Activity
             bgView = findViewById(R.id.colorViewTwo);
             COLOR_TWO_BG = rgbVals;
         } else {
-            Log.e("setBgColor", "Could not set background view properly");
+            Log.e("setBgColor --> ", "Could not set background view properly");
         }
         bgView.setBackgroundColor(Color.rgb(rgbVals[0], rgbVals[1],
                 rgbVals[2]));
@@ -198,9 +197,6 @@ public class ColorBlender extends Activity
         if (!buttonOneEnabled && !buttonTwoEnabled) {
             blendColors(progress);
         }
-
-        Log.d("SEEK BAR -->", "Progress: " + progress +
-                ". From User: " + fromUser);
     }
 
     /**
@@ -241,8 +237,6 @@ public class ColorBlender extends Activity
         blendedView.setBackgroundColor(blendedColorId);
 
         updateTextValues(blendedColorId);
-        Log.d("Color One ID -->", "" + colorOneId +
-                "Color Two Id -->: " + colorTwoId);
     }
 
     /**

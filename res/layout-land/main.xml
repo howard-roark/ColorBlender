@@ -52,6 +52,7 @@
             android:layout_marginLeft="200dp"
             class="com.cs390h.ColorBlender.VerticalSeekBar"
             android:id="@+id/blendBar"
+            android:rotation="180"
             android:layout_toRightOf="@+id/colorOneTitle"/>
 
     <View
