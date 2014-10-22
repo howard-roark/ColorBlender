@@ -123,7 +123,6 @@ public class ColorBlender extends Activity
      *
      * @param view
      */
-
     public void addColorButtonClicked(View view) {
         /* Create Intent to open ColorPicker app */
         Intent i = new Intent("com.testingtechs.GET_COLOR");
@@ -132,7 +131,13 @@ public class ColorBlender extends Activity
         this.view = view;
     }
 
-
+    /**
+     * Accept the color being sent back from Color Picker.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode,
                                     int resultCode, Intent data) {
@@ -222,31 +227,17 @@ public class ColorBlender extends Activity
         int colorOneId = getColorId(colorOne);
         int colorTwoId = getColorId(colorTwo);
 
-//        //RGB for color one
-//        int redOne = (colorOneId >> 16) & 0xFF;
-//        int greenOne = (colorOneId >> 8) & 0xFF;
-//        int blueOne = (colorOneId >> 0) & 0xFF;
-//
-//        //RGB for color two
-//        int redTwo = (colorTwoId >> 16) & 0xFF;
-//        int greenTwo = (colorTwoId >> 8) & 0xFF;
-//        int blueTwo = (colorTwoId >> 0) & 0xFF;
-//
-//        //Blended RGB of two colors
-//        int blendedRed = (redOne * progress + redTwo * (100 - progress)) /
-//                (Math.max((redOne + redTwo), 1));
-//        int blendedGreen = (greenOne * progress + greenTwo * (100 - progress)) /
-//                (Math.max((greenOne + greenTwo), 1));
-//        int blendedBlue = (blueOne * progress + blueTwo * (100 - progress)) /
-//                (Math.max((blueOne + blueTwo), 1));
-//
-//        int blendedColorId = ((blendedRed << 16) & 0xFFFFFF) +
-//                ((blendedGreen << 8) & 0xFFFFFF) +
-//                ((blendedBlue << 0) & 0xFFFFFF);
+        float[] hsvA = new float[3];
+        float[] hsvB = new float[3];
 
-        int blendedColorId = ((colorOneId * (100 - progress)) +
-                (colorTwoId * progress));
-        Log.d("Blended Color Id -->", "" + blendedColorId);
+        Color.colorToHSV(colorOneId, hsvA);
+        Color.colorToHSV(colorTwoId, hsvB);
+
+        for (int i = 0; i < 3; i++) {
+            hsvB[i] = (hsvA[i] + ((hsvB[i] - hsvA[i]) * (progress / 100f)));
+        }
+
+        int blendedColorId = Color.HSVToColor(hsvB);
         blendedView.setBackgroundColor(blendedColorId);
 
         updateTextValues(blendedColorId);
